@@ -1,0 +1,40 @@
+
+
+
+
+<h1> SIAMO NELLA PAGINA {{titolopagina}} </h1>
+
+
+<input type="text" style="width: 200px" placeholder="INSERISCI VALORE" [(ngModel)]="valoretextbox">
+
+<button routerLink="/login"> CAMBIA PAGINA </button>
+
+
+
+
+
+<h1>{{valoretextbox}}</h1>
+
+
+
+
+<input type="text" style="width: 200px" placeholder="INSERISCI VALORE" [(ngModel)]="username">
+<input type="text" style="width: 200px" placeholder="INSERISCI VALORE" [(ngModel)]="password">
+<button (click)="saveUser()"> SALVA UTENTE </button>
+
+
+<h1> LOGGED IN {{testservice.loggedIn}}</h1>
+<button (click)="login()"> Login </button>
+
+
+
+
+<ul>
+  <li *ngFor="let currentUser of userlist">
+    <p>{{currentUser.id}}    ------    {{currentUser.username}}    ----     {{currentUser.password}}</p>
+  </li>
+</ul>
+
+
+
+<button (click)="refresh()"> REFREESH </button>
