@@ -1,4 +1,4 @@
-
+<!--
 
 
 
@@ -38,3 +38,20 @@
 
 
 <button (click)="refresh()"> REFREESH </button>
+
+
+-->
+
+
+<h1>NUOVO LOGIN</h1>
+
+<input type="text" style="width: 200px" placeholder="INSERISCI VALORE" [(ngModel)]="username">
+<input type="text" style="width: 200px" placeholder="INSERISCI VALORE" [(ngModel)]="password">
+
+
+<button (click)="login()">FAI LOGIN E SALVA TOKEN</button>
+
+<h1>QUA SOTTO CI SARA IL TOKEN</h1>
+<h1>{{token}}</h1>
+
+<button (click)="chiamataProtetta()">EFFETTUA LA CHIAMATA PROTETTA</button>

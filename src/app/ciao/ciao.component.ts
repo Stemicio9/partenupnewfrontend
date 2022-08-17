@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TestService} from "../services/test.service";
 
+
 @Component({
   selector: 'app-ciao',
   templateUrl: './ciao.component.html',
@@ -24,6 +25,7 @@ export class CiaoComponent implements OnInit {
 
 
 
+  token = '';
 
 
 
@@ -70,9 +72,20 @@ export class CiaoComponent implements OnInit {
     userToSave.username = this.username;
     userToSave.password = this.password;
     this.testservice.login(userToSave).subscribe((result:any) => {
-      console.log("RISULTATO LOGIN ");
+      console.log("STTAMPO IL TOKEN ");
       console.log(result);
-      this.testservice.loggedIn = result;
+      this.token = result['jwt-token'];
+      this.testservice.token = this.token;
+    });
+  }
+
+  chiamataProtetta() {
+    this.testservice.chiamataProtetta().subscribe( result => {
+      console.log("RISULTATO DELLA CHIAMATA");
+      console.log(result);
+    }, error => {
+      console.log("ERRORE ERRORE");
+      console.log(error);
     });
   }
 

@@ -9,6 +9,8 @@ export class TestService {
 
   loggedIn = false;
 
+  token = '';
+
 
   constructor(private http: HttpClient) { }
 
@@ -27,9 +29,18 @@ export class TestService {
 
 
   login(user:any) {
-    let loginPath = environment.restBasePath + 'user/login';
+    let loginPath = environment.restBasePath + 'api/auth/login';
     return this.http.post(loginPath , user);
   }
 
+
+
+  chiamataProtetta() {
+    let path = environment.restBasePath + 'api/user/all';
+    var headers = {
+      'Authorization' : 'Bearer ' + this.token
+    };
+    return this.http.get(path,{headers: headers});
+  }
 
 }
